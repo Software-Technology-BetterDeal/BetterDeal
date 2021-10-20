@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.views.generic import TemplateView, ListView
 from .models import DummyDatabase 
+from django.db.models import Q
 
 posts = [
     {
@@ -37,3 +38,11 @@ class Search(TemplateView):
 class SearchResultsView(ListView):
     model = DummyDatabase
     template_name = 'app/searchresults.html'
+
+    def get_queryset(self):
+        query = self.request.GET.get('q')
+        object_list = DummyDatabase.objects.filter(
+            Q(name__icontains=query) 
+        )
+        return object_list
+
