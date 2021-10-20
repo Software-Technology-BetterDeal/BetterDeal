@@ -1,1 +1,9 @@
 <h1>SearchResults</h1>
+
+<ul>
+  {% for Dummy in object_list %}
+    <li>
+      {{ Dummy.name }}, {{ Dummy.price }}
+    </li>
+  {% endfor %}
+</ul>

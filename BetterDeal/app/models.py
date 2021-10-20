@@ -10,7 +10,7 @@ class DummyDatabase(models.Model):
         verbose_name_plural = "Dummies"
 
     def __str__(self):
-        return (self.name + " " + self.price)
+        return (self.name + " " + str(self.price))
 
 
 
