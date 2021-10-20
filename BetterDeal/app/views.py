@@ -1,4 +1,6 @@
 from django.shortcuts import render
+from django.views.generic import TemplateView, ListView
+from .models import DummyDatabase 
 
 posts = [
     {
@@ -27,3 +29,11 @@ def home(request):
 
 def about(request):
     return render(request, 'app/about.html', {'title': 'About'})
+
+
+class Search(TemplateView):
+    template_name = 'app/search.html'
+
+class SearchResultsView(ListView):
+    model = DummyDatabase
+    template_name = 'app/searchresults.html'
