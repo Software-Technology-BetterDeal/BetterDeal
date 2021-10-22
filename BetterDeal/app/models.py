@@ -23,5 +23,21 @@ class DummyDatabase(models.Model):
         return object_list
 
 
+class Product (models.Model):
+    product_name=models.CharField(max_length=255)
+    price=models.IntegerField()
+    supermarket=models.CharField(max_length=255)
 
-	
+    class Meta:
+        db_table = "product"
+
+    def __str__(self):
+        return (self.product_name + " " + str(self.price) + " " + self.supermarket)
+
+
+    def get_queryset(self):
+        query = self.request.GET.get('q')
+        object_list = Product.objects.filter(
+            Q(product_name__icontains=query) 
+        )
+        return object_list

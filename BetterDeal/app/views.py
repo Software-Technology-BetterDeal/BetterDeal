@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.views.generic import TemplateView, ListView
-from .models import DummyDatabase 
+from .models import Product
 from django.db.models import Q
 
 posts = [
@@ -36,13 +36,13 @@ class Search(TemplateView):
     template_name = 'app/search.html'
 
 class SearchResultsView(ListView):
-    model = DummyDatabase
+    model = Product
     template_name = 'app/searchresults.html'
 
     def get_queryset(self):
         query = self.request.GET.get('q')
-        object_list = DummyDatabase.objects.filter(
-            Q(name__icontains=query) 
+        object_list = Product.objects.filter(
+            Q(product_name__icontains=query) 
         )
         return object_list
 

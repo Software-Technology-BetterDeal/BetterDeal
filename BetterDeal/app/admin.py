@@ -2,9 +2,9 @@ from django.contrib import admin
 
 # Register your models here.
 
-from .models import DummyDatabase
+from .models import Product
 
 class DummyAdmin(admin.ModelAdmin):
-	list_display=('name','price',)
+	list_display=('product_name','price','supermarket',)
 
-admin.site.register(DummyDatabase,DummyAdmin)
+admin.site.register(Product,DummyAdmin)
