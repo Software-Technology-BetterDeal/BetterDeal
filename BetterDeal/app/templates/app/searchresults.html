@@ -4,9 +4,13 @@
 <h1>SearchResults</h1>
 
 <ul>
-  {% for Dummy in object_list %}
+  {% for product in object_list %}
     <li>
-      {{ Dummy.product_name }}, {{ Dummy.price }}
+      {{ product.product_name }}, {{ product.price }}
+      <!-- TO DO: GET A URL FOR CART ADD -->
+      <form action="" method="get"> 
+        <button name=AddButton type="sumbit" value={{ product.id }} >Add to cart</button>
+      </form>
     </li>
   {% endfor %}
 </ul>
