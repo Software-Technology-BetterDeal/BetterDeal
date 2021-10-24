@@ -3,8 +3,13 @@ from django.contrib import admin
 # Register your models here.
 
 from .models import Product
+from .models import Profile
 
-class DummyAdmin(admin.ModelAdmin):
+class ProductAdmin(admin.ModelAdmin):
 	list_display=('product_name','price','supermarket',)
 
-admin.site.register(Product,DummyAdmin)
+class ProfileAdmin(admin.ModelAdmin):
+	list_display=('user',)
+
+admin.site.register(Profile,ProfileAdmin)
+admin.site.register(Product,ProductAdmin)
