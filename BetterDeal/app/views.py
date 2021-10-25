@@ -1,10 +1,11 @@
 from django.shortcuts import render, redirect
 from django.views.generic import TemplateView, ListView
-from .models import Product
+from .models import Product, Profile
 from django.db.models import Q
 from .forms import NewUserForm
 from django.contrib.auth import login, authenticate
 from django.contrib.auth.forms import UserCreationForm
+
 
 posts = [
     {
@@ -34,6 +35,21 @@ def home(request):
 def about(request):
     return render(request, 'app/about.html', {'title': 'About'})
 
+def add_cart(request):
+    if request.method == 'POST':
+        product_id = request.POST.get('AddButton', '')
+        product=Product.objects.get(id=product_id)
+        profile=Profile.objects.get(user=request.user)
+        profile.cart.add(product)
+        return redirect('search')
+
+def cart(request):
+    profile=Profile.objects.get(user=request.user)
+
+    context={
+        'cart':profile.cart.all()
+    }
+    return render(request,'app/cart.html',context)
 
 class Search(TemplateView):
     template_name = 'app/search.html'

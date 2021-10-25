@@ -8,8 +8,9 @@
     <li>
       {{ product.product_name }}, {{ product.price }}
       <!-- TO DO: GET A URL FOR CART ADD -->
-      <form action="" method="get"> 
-        <button name=AddButton type="sumbit" value={{ product.id }} >Add to cart</button>
+      <form action="{% url 'addcart' %}" method="POST"> 
+        {% csrf_token %}
+        <button name="AddButton" type="sumbit" value={{ product.id }} >Add to cart</button>
       </form>
     </li>
   {% endfor %}
