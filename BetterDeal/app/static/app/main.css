@@ -11,3 +11,26 @@
     padding: 40px;
 }
 
+.home-title {
+    font-size: 60px;
+    font-family: tahoma;
+    text-align: center;
+    padding-top: 100px;
+}
+
+.home-text{
+    font-size: 20px;
+    font-family: lucida console;
+    text-align: center;
+    padding-top: 50px;
+}
+
+form {
+  text-align: center;
+  padding-top: 50px;
+}
+
+input[name="q"] {
+  height: 40px;
+  width: 600px;
+}
