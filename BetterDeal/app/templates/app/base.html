@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+{% load static %}
 <html lang="eng">
 <head>
     <meta charset="utf-8">
@@ -17,6 +18,8 @@
     {% else %}
         <title>BetterDeal App</title>
     {% endif %}
+    <link rel="stylesheet" type="text/css" href="{% static 'app/main.css' %}"/>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Tangerine"/>
 </head>
 <body>
     <nav class="navbar navbar-inverse">
@@ -29,7 +32,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="{% url 'app-home' %}">BetterDeal</a>2
+                <a class="navbar-brand" href="{% url 'app-home' %}">BetterDeal</a>
             </div>
 
             <!--Items-->
@@ -38,7 +41,6 @@
                     {% block nav %}{% endblock nav%}
                 </ul>
             </div>
-
 
         </div>
     </nav>

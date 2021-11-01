@@ -1,0 +1,13 @@
+.navbar-inverse {
+    background-color: SeaGreen;
+    height: 100px;
+    border-color: SeaGreen;
+}
+
+.navbar-inverse .navbar-brand {
+    color: burlywood;
+    font-family: tahoma;
+    font-size: 80px;
+    padding: 40px;
+}
+
