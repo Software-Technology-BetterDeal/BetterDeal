@@ -6,28 +6,11 @@ from .forms import NewUserForm
 from django.contrib.auth import login, authenticate
 from django.contrib.auth.forms import UserCreationForm
 
-posts = [
-    {
-        'author': 'BetterDeal',
-        'title': 'BetterDeal Post 1',
-        'content': 'First post content',
-        'date_posted': 'October 18, 2021'
-    },
-    {
-        'author': 'BetterDeal2',
-        'title': 'BetterDeal Post 2',
-        'content': 'Second post content',
-        'date_posted': 'October 17, 2021'
-    }
-]
-
 
 # Create your views here.
 def home(request):
     # with context we pass the data to the template
-    context = {
-        'posts': posts
-    }
+    context = {}
     return render(request, 'app/home.html', context)
 
 

@@ -1,20 +1,16 @@
 {% extends "app/base.html" %}
 {% block content %}
-    {% for post in posts %}
-        <h1>{{ post.title }}</h1>
-        <p>Post by {{ post.author }} on {{ post.date_posted }}</p>
-        <p>{{ post.content }}</p>
-    {% endfor %}
+
 {% endblock content %}
 
 {% block nav %}
      <li class="">
-         <a href="{% url 'login' %}" style="font-family: lucida console">Login</a>
+         <a href="{% url 'login' %}" style="font-family: lucida console; color: burlywood">Login</a>
      </li>
     <li class="">
-         <a href="{% url 'register' %}" style="font-family: lucida console">Sign Up</a>
+         <a href="{% url 'register' %}" style="font-family: lucida console; color: burlywood">Sign Up</a>
     </li>
     <li class="">
-         <a href="{% url 'search' %}" style="font-family: lucida console">Search</a>
+         <a href="{% url 'search' %}" style="font-family: lucida console; color: burlywood">Search</a>
      </li>
 {% endblock nav %}
