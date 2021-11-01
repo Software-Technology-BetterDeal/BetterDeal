@@ -6,7 +6,6 @@ from .forms import NewUserForm
 from django.contrib.auth import login, authenticate
 from django.contrib.auth.forms import UserCreationForm
 
-
 posts = [
     {
         'author': 'BetterDeal',
@@ -32,27 +31,27 @@ def home(request):
     return render(request, 'app/home.html', context)
 
 
-def about(request):
-    return render(request, 'app/about.html', {'title': 'About'})
-
 def add_cart(request):
     if request.method == 'POST':
         product_id = request.POST.get('AddButton', '')
-        product=Product.objects.get(id=product_id)
-        profile=Profile.objects.get(user=request.user)
+        product = Product.objects.get(id=product_id)
+        profile = Profile.objects.get(user=request.user)
         profile.cart.add(product)
         return redirect('search')
 
-def cart(request):
-    profile=Profile.objects.get(user=request.user)
 
-    context={
-        'cart':profile.cart.all()
+def cart(request):
+    profile = Profile.objects.get(user=request.user)
+
+    context = {
+        'cart': profile.cart.all()
     }
-    return render(request,'app/cart.html',context)
+    return render(request, 'app/cart.html', context)
+
 
 class Search(TemplateView):
     template_name = 'app/search.html'
+
 
 class SearchResultsView(ListView):
     model = Product
@@ -61,7 +60,7 @@ class SearchResultsView(ListView):
     def get_queryset(self):
         query = self.request.GET.get('q')
         object_list = Product.objects.filter(
-            Q(product_name__icontains=query) 
+            Q(product_name__icontains=query)
         )
         return object_list
 
