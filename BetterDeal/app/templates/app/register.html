@@ -10,3 +10,14 @@
   </form>
 
 {% endblock %}
+{% block nav %}
+     <li class="">
+         <a href="{% url 'login' %}">Login</a>
+     </li>
+    <li class="active">
+         <a href="{% url 'register' %}">Sign Up</a>
+    </li>
+    <li class="">
+         <a href="{% url 'search' %}">Search</a>
+     </li>
+{% endblock nav %}

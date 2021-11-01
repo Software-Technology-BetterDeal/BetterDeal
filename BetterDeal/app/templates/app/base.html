@@ -1,6 +1,17 @@
 <!DOCTYPE html>
-<html>
+<html lang="eng">
 <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
     {% if title %}
         <title>BetterDeal App - {{ title }}</title>
     {% else %}
@@ -8,8 +19,32 @@
     {% endif %}
 </head>
 <body>
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+
+            <!--Header-->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggel="collapse" data-target="#topNavBar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="{% url 'app-home' %}">BetterDeal</a>2
+            </div>
+
+            <!--Items-->
+            <div class="collapse navbar-collapse">
+                <ul class="nav navbar-nav">
+                    {% block nav %}{% endblock nav%}
+                </ul>
+            </div>
+
+
+        </div>
+    </nav>
+
     <div class="container">
-        {% block content %}{% endblock %}
+        {% block content %}{% endblock content %}
     </div>
 
 </body>

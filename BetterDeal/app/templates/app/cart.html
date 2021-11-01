@@ -13,3 +13,15 @@
 </ul>
 
 {% endblock content %}
+
+{%block nav%}
+  <li class="">
+    <a href="{% url 'logout' %}">Logout</a>
+  </li>
+  <li class="active">
+    <a href="{% url 'cart' %}">Cart</a>
+  </li>
+  <li class="">
+    <a href="{% url 'search' %}">Search</a>
+  </li>
+{% endblock nav %}
