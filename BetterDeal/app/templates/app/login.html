@@ -10,13 +10,11 @@
   </form>
 {% endblock %}
 {% block nav %}
-     <li class="active">
-         <a href="{% url 'login' %}" style="background-color: burlywood; font-family: lucida console">Login</a>
-     </li>
     <li class="">
          <a href="{% url 'register' %}" style="font-family: lucida console; color: burlywood">Sign Up</a>
     </li>
-    <li class="">
-         <a href="{% url 'search' %}" style="font-family: lucida console; color: burlywood">Search</a>
-     </li>
+    <li class="active">
+         <a href="{% url 'login' %}" style="background-color: burlywood; font-family: lucida console">Login</a>
+    </li>
+
 {% endblock nav %}
