@@ -2,9 +2,9 @@
 
 {% block content %}
 
-<h1>CART</h1>
+<h2 class="cart-title">Cart</h2>
 
-<ul>
+<ul class="cart-list">
   {% for product in cart %}
     <li>
       {{ product.product_name }}, {{ product.price }}

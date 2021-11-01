@@ -1,17 +1,15 @@
 {% extends "app/base.html" %}
 {% block content %}
    
-<h1>Search</h1>
+{% if request.user.is_authenticated %}
+  <h2 class="user-title">Hi {{user.username}}! </h2>
+{% else %}
+{% endif %}
 
-<form action="{% url 'searchresults' %}" method="get">
+<form class="search-form" action="{% url 'searchresults' %}" method="get">
   <input name="q" type="text" placeholder="Search...">
   <input type="submit" value="Send Search">
 </form>
-
-{% if request.user.is_authenticated %}
-  <p>Hi {{user.username}}! </p>
-{% else %}
-{% endif %}
 
 {% endblock content %}
 
