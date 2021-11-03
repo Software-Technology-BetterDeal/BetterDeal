@@ -4,17 +4,31 @@
 
 <h2 class="cart-title">Cart</h2>
 
-<ul class="cart-list">
-  {% for product in cart %}
-    <li>
-      {{ product.product_name }}, {{ product.price }}
-    </li>
-    <form action="{% url 'removecart' %}" method="POST"> 
-      {% csrf_token %}
-      <button name="RemoveButton" type="sumbit" value={{ product.id }} >Remove from Cart</button>
-    </form>
-  {% endfor %}
-</ul>
+{% for supermarket in supermarkets %}
+
+<div name={{supermarket}}>
+
+  <p>
+    {{supermarket}}
+  </p>
+
+  <ul class="cart-list">
+    {% for product in cart %}
+      {% if product.supermarket == supermarket %}
+        <li>
+          {{ product.product_name }}, {{ product.price }}
+        </li>
+        <form action="{% url 'removecart' %}" method="POST"> 
+          {% csrf_token %}
+          <button name="RemoveButton" type="sumbit" value={{ product.id }} >Remove from Cart</button>
+        </form>
+      {% endif %}
+    {% endfor %}
+  </ul>
+
+</div>
+    
+{% endfor %}
 
 {% endblock content %}
 

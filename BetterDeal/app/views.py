@@ -34,8 +34,13 @@ def remove_cart(request):
 def cart(request):
     profile = Profile.objects.get(user=request.user)
 
+    cart=profile.cart.all()
+    supermarkets=set([x.supermarket for x in cart ])
+
+
     context = {
-        'cart': profile.cart.all()
+        'cart': profile.cart.all(),
+        'supermarkets':supermarkets
     }
     return render(request, 'app/cart.html', context)
 
