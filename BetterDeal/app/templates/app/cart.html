@@ -9,6 +9,10 @@
     <li>
       {{ product.product_name }}, {{ product.price }}
     </li>
+    <form action="{% url 'removecart' %}" method="POST"> 
+      {% csrf_token %}
+      <button name="RemoveButton" type="sumbit" value={{ product.id }} >Remove from Cart</button>
+    </form>
   {% endfor %}
 </ul>
 

@@ -22,6 +22,14 @@ def add_cart(request):
         profile.cart.add(product)
         return redirect('search')
 
+def remove_cart(request):
+    if request.method == 'POST':
+        product_id = request.POST.get('RemoveButton', '')
+        product = Product.objects.get(id=product_id)
+        profile = Profile.objects.get(user=request.user)
+        profile.cart.remove(product)
+        return redirect('cart')
+
 
 def cart(request):
     profile = Profile.objects.get(user=request.user)
