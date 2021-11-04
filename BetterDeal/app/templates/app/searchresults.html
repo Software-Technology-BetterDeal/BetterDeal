@@ -1,22 +1,29 @@
 {% extends "app/base.html" %}
+{% load static %}
 {% block content %}
 
 <h2 class="searchresults-title">SearchResults</h2>
 
-<ul class="searchresults-list">
-  {% for product in object_list %}
-    <li>
-      {{ product.product_name }}, {{ product.price }}
-      <!-- TO DO: GET A URL FOR CART ADD -->
-      {% if request.user.is_authenticated %}
-        <form action="{% url 'addcart' %}" method="POST"> 
-          {% csrf_token %}
-          <button name="AddButton" type="sumbit" value={{ product.id }} >Add to cart</button>
-        </form>
-      {% endif %}
-    </li>
-  {% endfor %}
-</ul>
+
+<table class="table table-hover">
+    {% for product in object_list %}
+    <tr>
+      <td>KÉP</td>
+      <td>
+        <span class="h3">{{ product.product_name }}</span><br>
+        <img src="/static/app/tesco.png" alt="My image" height="15"/> <br>
+        {{ product.price }} Ft <br>
+        {% if request.user.is_authenticated %}
+          <form action="{% url 'addcart' %}" method="POST"> 
+            {% csrf_token %}
+            <button name="AddButton" type="sumbit" value={{ product.id }} >Add to cart</button>
+          </form>
+        {% endif %}
+      </td>
+    </tr>
+    {% endfor %}
+
+</table>
 
 {% endblock content %}
 

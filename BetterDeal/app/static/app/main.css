@@ -82,3 +82,11 @@ input[name="q"] {
 .searchresults-list{
     font-family: lucida console;
 }
+
+.table {
+    border-collapse: separate;
+    border-spacing:0 20px;
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+}
