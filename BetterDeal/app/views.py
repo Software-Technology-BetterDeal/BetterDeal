@@ -22,12 +22,25 @@ def add_cart(request):
         profile.cart.add(product)
         return redirect('search')
 
+def remove_cart(request):
+    if request.method == 'POST':
+        product_id = request.POST.get('RemoveButton', '')
+        product = Product.objects.get(id=product_id)
+        profile = Profile.objects.get(user=request.user)
+        profile.cart.remove(product)
+        return redirect('cart')
+
 
 def cart(request):
     profile = Profile.objects.get(user=request.user)
 
+    cart=profile.cart.all()
+    supermarkets=set([x.supermarket for x in cart ])
+
+
     context = {
-        'cart': profile.cart.all()
+        'cart': profile.cart.all(),
+        'supermarkets':supermarkets
     }
     return render(request, 'app/cart.html', context)
 

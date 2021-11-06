@@ -13,12 +13,13 @@ class Product (models.Model):
     product_name=models.CharField(max_length=255)
     price=models.IntegerField()
     supermarket=models.CharField(max_length=255)
+    image_name=models.CharField(max_length=255)
 
     class Meta:
         db_table = "product"
 
     def __str__(self):
-        return (self.product_name + " " + str(self.price) + " " + self.supermarket)
+        return (self.product_name + " " + str(self.price) + " " + self.supermarket+ " "+ self.image_name)
 
 
     def get_queryset(self):
