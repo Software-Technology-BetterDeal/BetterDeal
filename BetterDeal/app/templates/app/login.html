@@ -2,10 +2,19 @@
 
 
 {% block content %}
-  <h2>Login</h2>
-  <form method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Login</button>
-  </form>
+    <h2 class="login-title">Login to BetterDeal</h2>
+    <form class="login-form" method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Login</button>
+    </form>
 {% endblock %}
+{% block nav %}
+    <li class="">
+         <a href="{% url 'register' %}" style="font-family: lucida console; color: burlywood">Sign Up</a>
+    </li>
+    <li class="active">
+         <a href="{% url 'login' %}" style="background-color: burlywood; font-family: lucida console">Login</a>
+    </li>
+
+{% endblock nav %}

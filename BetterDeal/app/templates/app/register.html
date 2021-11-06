@@ -2,11 +2,19 @@
 
 {% block content %} 
 
-  <h2>Register</h2>
-  <form method="post">
+  <h2 class="register-title">Register</h2>
+  <form class="register-form" method="post">
     {% csrf_token %}
     {{ form.as_p }}
-    <button type="submit">Sign up</button>
+    <button type="submit" style="font-family: lucida console">Sign up</button>
   </form>
 
 {% endblock %}
+{% block nav %}
+    <li class="active" >
+         <a href="{% url 'register' %}" style="background-color: burlywood; font-family: lucida console">Sign Up</a>
+    </li>
+    <li class="">
+         <a href="{% url 'login' %}" style="font-family: lucida console; color: burlywood">Login</a>
+    </li>
+{% endblock nav %}

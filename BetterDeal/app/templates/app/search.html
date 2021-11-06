@@ -1,22 +1,37 @@
 {% extends "app/base.html" %}
 {% block content %}
    
-<h1>Search</h1>
+{% if request.user.is_authenticated %}
+  <h2 class="user-title">Hi {{user.username}}! </h2>
+{% else %}
+{% endif %}
 
-<form action="{% url 'searchresults' %}" method="get">
+<form class="search-form" action="{% url 'searchresults' %}" method="get">
   <input name="q" type="text" placeholder="Search...">
   <input type="submit" value="Send Search">
 </form>
 
+{% endblock content %}
+
+{% block nav %}
 {% if request.user.is_authenticated %}
-  <p>Hi {{user.username}}! </p>
-  <li><a href="{% url 'logout' %}">Logout</a></li>
-  <li><a href="{% url 'cart' %}">Cart</a></li>
-  
- 
+  <li class="">
+    <a href="{% url 'cart' %}" style="font-family: lucida console; color: burlywood">Cart</a>
+  </li>
+  <li class="active">
+    <a href="{% url 'search' %}" style="background-color: burlywood;font-family: lucida console">Search</a>
+  </li>
+  <li class="">
+    <a href="{% url 'logout' %}" style="font-family: lucida console; color: burlywood">Logout</a>
+  </li>
 
 {% else %}
-   <li><a href="{% url 'login' %}">Login</a></li>
+  <li class="">
+    <a href="{% url 'register' %}" style="font-family: lucida console; color: burlywood">Sign Up</a>
+  </li>
+  <li class="">
+    <a href="{% url 'login' %}" style="font-family: lucida console; color: burlywood">Login</a>
+  </li>
 {% endif %}
 
-{% endblock content %}
+{% endblock nav %}

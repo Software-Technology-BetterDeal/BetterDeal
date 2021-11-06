@@ -1,8 +1,19 @@
 {% extends "app/base.html" %}
 {% block content %}
-    {% for post in posts %}
-        <h1>{{ post.title }}</h1>
-        <p>Post by {{ post.author }} on {{ post.date_posted }}</p>
-        <p>{{ post.content }}</p>
-    {% endfor %}
+    <h1 class="home-title">Welcome to BetterDeal!</h1>
+    <h2 class="home-text">Create you super economic grocery list containing the products with best quality!</h2>
+    <form class="search-form" action="{% url 'searchresults' %}" method="get">
+        <input name="q" type="text" placeholder="Search...">
+        <input type="submit" value="Send Search">
+    </form>
 {% endblock content %}
+
+{% block nav %}
+    <li class="">
+         <a href="{% url 'register' %}" style="font-family: lucida console; color: burlywood">Sign Up</a>
+    </li>
+    <li class="">
+         <a href="{% url 'login' %}" style="font-family: lucida console; color: burlywood">Login</a>
+    </li>
+
+{% endblock nav %}
