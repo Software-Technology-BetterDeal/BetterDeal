@@ -12,7 +12,7 @@ cur.execute("DELETE FROM product;") # resets the table
 supermarkets= ['spar','aldi','tesco']
 
 os.system("python aldi_get_data.py ")
-os.system("python spar_get_data.py ")
+#os.system("python spar_get_data.py ")
 os.system("python tesco_get_data.py ")
 
 
