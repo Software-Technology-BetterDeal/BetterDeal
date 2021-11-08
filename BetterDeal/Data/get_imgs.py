@@ -76,6 +76,6 @@ elif (supermarket=='tesco'):
 # elif (supermarket=="spar"):
 #     url='https://www.spar.hu/onlineshop/'
 
-folder_name=supermarket+"-images"
+folder_name="../app/static/"+supermarket+"-images"
 
 main(url, folder_name)
