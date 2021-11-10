@@ -3,6 +3,26 @@
 
 <h2 class="searchresults-title">SearchResults</h2>
 
+<div class="container">
+  <div class="row">
+  {% for product  in object_list %}
+  {%  if forloop.counter|divisibleby:3 %} 
+    <div class="col-md-4">
+      {{ product.product_name }}
+    </div>
+  </div>
+  {% if not forloop.last %} 
+  <div class="row">
+  {% endif %}
+  {% else %} 
+    <div class="col-md-4">
+      {{ product.product_name }}
+    </div>
+  {% endif %}
+  {% endfor %}
+  </div>
+</div>
+
 <ul class="searchresults-list">
   {% for product in object_list %}
     <li>
