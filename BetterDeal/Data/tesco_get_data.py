@@ -18,13 +18,13 @@ def get_unit_price( s):
         pass
     return r
 
-csv_file = open('tesco_discounts.csv', "w", encoding="Cp1250") 
+csv_file = open('tesco_discounts.csv', "w", encoding="utf8") 
 
 csv_writer = csv.writer(csv_file)
 csv_writer.writerow(['product_name', 'price', 'unit', 'unit_price','image_name','integration_date','supermarket'])
 
 #for i in range(1,30):
-source = requests.get('https://tesco.hu/akciok/akcios-termekek/?page=60').text
+source = requests.get('https://tesco.hu/akciok/akcios-termekek/?page=80').text
 soup = BeautifulSoup(source, 'lxml')
 
 

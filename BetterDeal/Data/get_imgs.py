@@ -72,7 +72,7 @@ supermarket = sys.argv[1]
 if (supermarket=='aldi'):
     url= "https://www.aldi.hu/hu/ajanlatok/akciok-aldi-aron/"
 elif (supermarket=='tesco'):
-    url="https://tesco.hu/akciok/akcios-termekek/?page=20"
+    url="https://tesco.hu/akciok/akcios-termekek/?page=80"
 # elif (supermarket=="spar"):
 #     url='https://www.spar.hu/onlineshop/'
 

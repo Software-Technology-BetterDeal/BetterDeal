@@ -21,7 +21,7 @@ def get_unit_price( s):
 def del_spaces(s):
     return re.sub('\s+','',s)
 
-csv_file = open('aldi_discounts.csv', "w", encoding="Cp1250") 
+csv_file = open('aldi_discounts.csv', "w", encoding="utf8") 
 
 csv_writer = csv.writer(csv_file)
 csv_writer.writerow(['product_name', 'price', 'image_name','integration_date','supermarket'])
