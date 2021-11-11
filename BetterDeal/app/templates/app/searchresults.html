@@ -1,22 +1,60 @@
 {% extends "app/base.html" %}
 {% block content %}
+{% load static %}
 
 <h2 class="searchresults-title">SearchResults</h2>
 
-<ul class="searchresults-list">
-  {% for product in object_list %}
-    <li>
-      {{ product.product_name }}, {{ product.price }}
-      <!-- TO DO: GET A URL FOR CART ADD -->
-      {% if request.user.is_authenticated %}
-        <form action="{% url 'addcart' %}" method="POST"> 
-          {% csrf_token %}
-          <button name="AddButton" type="sumbit" value={{ product.id }} >Add to cart</button>
-        </form>
-      {% endif %}
-    </li>
+
+
+<div class="container">
+  <div class="row">
+  {% for product  in object_list %}
+  {%  if forloop.counter|divisibleby:2 %} 
+    <div class="col-md-6">
+      <table class="my_table">
+        <tr>
+          <td height="100" width="100">KÉP</td>
+          <td>
+            <span>{{ product.product_name }}</span><br>
+            <img src="/static/app/tesco.png" alt="My image" height="15"/> <br>
+            {{ product.price }} Ft <br>
+            {% if request.user.is_authenticated %}
+              <form action="{% url 'addcart' %}" method="POST"> 
+                {% csrf_token %}
+                <button name="AddButton" class="my_green_button" type="sumbit" value={{ product.id }} >Add to cart</button>
+              </form>
+            {% endif %}
+          </td>
+        </tr>
+      </table>  
+    </div>
+  </div>
+  {% if not forloop.last %} 
+  <div class="row">
+  {% endif %}
+  {% else %} 
+     <div class="col-md-6">
+      <table class="my_table">
+        <tr>
+          <td height="100" width="100">KÉP</td>
+          <td>
+            <span>{{ product.product_name }}</span><br>
+            <img src="/static/app/tesco.png" alt="My image" height="15"/> <br>
+            {{ product.price }} Ft <br>
+            {% if request.user.is_authenticated %}
+              <form action="{% url 'addcart' %}" method="POST"> 
+                {% csrf_token %}
+                <button name="AddButton" class="my_green_button" type="sumbit" value={{ product.id }} >Add to cart</button>
+              </form>
+            {% endif %}
+          </td>
+        </tr>
+      </table>  
+    </div>
+  {% endif %}
   {% endfor %}
-</ul>
+  </div>
+</div>
 
 {% endblock content %}
 

@@ -1,3 +1,12 @@
+.my_table {
+    border-collapse: separate;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    border-radius: 10px;
+    padding: 10px;
+    margin-bottom: 20px;
+    width: 100%;
+}
+
 .navbar-inverse {
     background-color: SeaGreen;
     height: 100px;
@@ -33,7 +42,26 @@
 
 input[name="q"] {
   height: 40px;
-  width: 600px;
+  width: 400px;
+  border-radius: 20px;
+  padding-left: 10px;
+  background-color: #f2f2f2;
+  border-color: #f2f2f2
+}
+
+input:focus{
+    outline: none;
+}
+
+#submit_button, button {
+    background-color: #2E8B57;
+    border-radius: 15px;
+    margin-top:15px;
+    padding: 5px;
+}
+
+#submit_button:hover, button:hover{
+    background-color: #27764a;
 }
 
 .login-title{
@@ -82,3 +110,13 @@ input[name="q"] {
 .searchresults-list{
     font-family: lucida console;
 }
+
+.row {
+    display: flex;
+}
+  
+.column {
+    flex: 50%;
+}
+
+
