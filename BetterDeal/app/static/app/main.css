@@ -53,14 +53,14 @@ input:focus{
     outline: none;
 }
 
-#submit_button{
+#submit_button, button {
     background-color: #2E8B57;
     border-radius: 15px;
     margin-top:15px;
     padding: 5px;
 }
 
-#submit_button:hover{
+#submit_button:hover, button:hover{
     background-color: #27764a;
 }
 
