@@ -119,4 +119,21 @@ input:focus{
     flex: 50%;
 }
 
+.wrapper{
+    margin: 80px;
+}
+.Align-form{
+    max-width: 380px;
+    margin: 0 auto;
+    background-color:burlywood;
+    padding: 15px 40px 50px;
+    border: 1px solid black;
+    border-radius: 10px;
+}
+
+.Align-title{
+    padding-top:1px;
+    padding-bottom: 12px;
+}
+
 
