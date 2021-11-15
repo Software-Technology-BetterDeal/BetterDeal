@@ -22,5 +22,12 @@ class ProfileModelTests(TestCase):
         result = profile.__str__()
         self.assertEqual(result, 'user')
 
-
+class CartModelTests(TestCase):
+    def test___str__(self):
+        user1 = User.objects.create_user('user4', 'user@gmail.com', 'pw',)
+        user1.save()
+        profile = Profile.objects.get(user_id=user1.id)
+        product1=profile.cart.create(product_name='tej',price=255,supermarket='aldi',image_name='')
+        product1.save()
+        self.assertEqual(profile.cart.all()[0], product1)
 
