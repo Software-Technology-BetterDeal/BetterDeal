@@ -38,7 +38,7 @@ class Profile(models.Model):
         db_table = "profile"
 
     def __str__(self):
-        return self.username 
+        return self.user.username
 
     def get_cart(self):
         return list(self.cart.all())
