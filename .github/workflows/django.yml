@@ -26,4 +26,4 @@ jobs:
         python -m pip install django
     - name: Run Tests
       run: |
-        python BetterDeal/manage.py test
+        python manage.py test
