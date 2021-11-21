@@ -1,8 +1,11 @@
 {% extends "app/base.html" %}
 
 {% block content %}
+{% load static %}
 
 <h2 class="cart-title">Cart</h2>
+
+<img src="{% static 'app/undraw_empty_cart_co35.png' %}" height="400" alt="My image">
 
 {% for supermarket in supermarkets %}
 
@@ -12,19 +15,53 @@
     {{supermarket}}
   </p>
 
-  <ul class="cart-list">
-    {% for product in cart %}
-      {% if product.supermarket == supermarket %}
-        <li>
-          {{ product.product_name }}, {{ product.price }}
-        </li>
-        <form action="{% url 'removecart' %}" method="POST"> 
-          {% csrf_token %}
-          <button name="RemoveButton" type="sumbit" value={{ product.id }} >Remove from Cart</button>
-        </form>
+  <div class="container">
+    <div class="row">
+    {% for product  in cart %}
+    {% if product.supermarket == supermarket %}
+      {%  if forloop.counter|divisibleby:2 %} 
+        <div class="col-md-6">
+          <table class="my_table">
+            <tr>
+              <td height="100" width="100"><img src="/static/{{ product.supermarket}}-images/{{ product.image_name }}" alt="My image" height="100"/> <br></td>
+              <td>
+                <span>{{ product.product_name }}</span><br>
+                <img src="/static/{{ product.supermarket}}-images/{{ product.supermarket}}.png" alt="My image" height="15"/> <br>
+                {{ product.price }} Ft <br>
+                <form action="{% url 'removecart' %}" method="POST"> 
+                  {% csrf_token %}
+                  <button name="RemoveButton" type="sumbit" value={{ product.id }} >Remove from Cart</button>
+                </form>
+              </td>
+            </tr>
+          </table>  
+        </div>
+      </div>
+      {% if not forloop.last %} 
+      <div class="row">
       {% endif %}
+      {% else %} 
+        <div class="col-md-6">
+          <table class="my_table">
+            <tr>
+              <td height="100" width="100"><img src="/static/{{ product.supermarket}}-images/{{ product.image_name }}" alt="My image" height="100"/> <br></td>
+              <td>
+                <span>{{ product.product_name }}</span><br>
+                <img src="/static/tesco-images/tesco.png" alt="My image" height="15"/> <br>
+                {{ product.price }} Ft <br>
+                <form action="{% url 'removecart' %}" method="POST"> 
+                  {% csrf_token %}
+                  <button name="RemoveButton" type="sumbit" value={{ product.id }} >Remove from Cart</button>
+                </form>
+              </td>
+            </tr>
+          </table>  
+        </div>
+      {% endif %}
+    {% endif %}
     {% endfor %}
-  </ul>
+    </div>
+  </div>
 
 </div>
     
@@ -33,14 +70,15 @@
 {% endblock content %}
 
 {%block nav%}
-
-  <li class="active">
-    <a href="{% url 'cart' %}" style="background-color: burlywood; font-family: lucida console">Cart</a>
+    
+  </nav>
+  <li class="navlink-active navlink">
+    <a href="{% url 'cart' %}" style="background-color: burlywood; font-family: lucida console; border-radius: 0px 0px 10px 10px">Cart</a>
   </li>
-  <li class="">
+  <li class="navlink">
     <a href="{% url 'search' %}" style="font-family: lucida console; color: burlywood">Search</a>
   </li>
-  <li class="">
+  <li class="navlink">
         <a href="{% url 'logout' %}" style="font-family: lucida console; color: burlywood">Logout</a>
   </li>
 
