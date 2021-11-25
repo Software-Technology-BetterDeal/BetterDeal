@@ -5,6 +5,7 @@ from django.db.models import Q
 from .forms import NewUserForm
 from django.contrib.auth import login, authenticate
 from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth import views as auth_views
 
 
 # Create your views here.
@@ -74,3 +75,8 @@ def register_request(request):
     else:
         form = UserCreationForm()
     return render(request, 'app/register.html', {'form': form})
+
+def login_user(request, template_name='app/login.html', extra_context=None):  
+    response = auth_views.login(request, template_name)  
+    if request.POST.has_key('remember_me'):    
+        request.session.set_expiry(1209600)
