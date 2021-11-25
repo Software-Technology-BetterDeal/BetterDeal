@@ -1,5 +1,6 @@
 {% extends "app/base.html" %}
 {% block content %}
+{% load static %}
    
 {% if request.user.is_authenticated %}
   <h2 class="user-title">Hi {{user.username}}! </h2>
@@ -7,8 +8,8 @@
 {% endif %}
 
 <form class="search-form" action="{% url 'searchresults' %}" method="get">
-  <input name="q" type="text" placeholder="Search...">
-  <input type="submit" value="Send Search">
+  <input name="q" type="text" placeholder="Search..."><br>
+  <input type="submit" class="border-0 green-button" value="Send Search">
 </form>
 
 {% endblock content %}
