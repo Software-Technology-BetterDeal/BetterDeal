@@ -7,6 +7,10 @@
     width: 100%;
 }
 
+.navlink {
+    border-radius: 0px 0px 10px 10px;
+}
+
 .navbar-inverse {
     background-color: SeaGreen;
     height: 100px;
