@@ -61,15 +61,12 @@ class PageTests(TestCase):
         self.assertEqual(response.status_code, 200)
         self.assertEqual(response.redirect_chain[-1][0], '/app/search/')
 
-        # Login page doesn't redirect with wrong login , and shows the incorrect login message
+        # Login page doesn't redirect with wrong login 
 
         response = self.c.post('/app/login/', {'username': 'wronguser', 'password': 'test1234'}, follow=True)
         self.assertEqual(response.status_code, 200)
         self.assertEqual(response.redirect_chain, [])
-        content = response.content.decode("utf-8")
-        self.assertEqual(
-            'Please enter a correct username and password. Note that both fields may be case-sensitive' in content,
-            True)
+        
 
     def test__search__(self):
         # Search Page avaiable
