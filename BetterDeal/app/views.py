@@ -103,7 +103,3 @@ def register_request(request):
         form = UserCreationForm()
     return render(request, 'app/register.html', {'form': form})
 
-def login_user(request, template_name='app/login.html', extra_context=None):  
-    response = auth_views.login(request, template_name)  
-    if request.POST.has_key('remember_me'):    
-        request.session.set_expiry(1209600)
