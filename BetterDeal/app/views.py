@@ -58,11 +58,17 @@ def cart(request):
         products.append([Product.objects.get(id=prod.product_id),prod.quantity])
         
     supermarkets=set([x[0].supermarket for x in products ])
-
+    total = 0
+    for product in products:
+        price = product[0].price
+        price = str(price)
+        price = price.replace(" ", "")
+        total += int(price) * product[1]
 
     context = {
         'cart': products,
-        'supermarkets':supermarkets
+        'supermarkets':supermarkets,
+        'sum' : total
     }
     return render(request, 'app/cart.html', context)
 

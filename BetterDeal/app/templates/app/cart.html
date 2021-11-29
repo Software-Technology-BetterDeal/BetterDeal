@@ -43,8 +43,24 @@
         </div>
     {% endif %}
     {% endfor %}
+    <div class="col-25">
+      <div class="container">
+        <h4>Cart
+          <span class="price" style="color:black">
+            <i class="fa fa-shopping-cart"></i>
+          </span>
+        </h4>
+        {% for product in cart %}
+          {% if product.supermarket == supermarket %}
+            <p><span class="price">{{ product.price }}</span></p>
+            {% endif %}
+        {% endfor %} 
+        <h4>
+          <p><span class="price">{{ sum }}</span></p>
+        </h4> 
+      </div>
+    </div>  
   </div>
-
 </div>
     
 {% endfor %}
