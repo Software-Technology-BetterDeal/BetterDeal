@@ -1,8 +1,5 @@
 {% extends "app/base.html" %}
 
-@register.filter(name='lookup')
-def lookup(value, arg):
-    return value[arg]
 
 {% block content %}
 {% load static %}
