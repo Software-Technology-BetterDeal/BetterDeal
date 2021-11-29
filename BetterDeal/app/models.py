@@ -8,6 +8,9 @@ from django.db.models import Q
 
 # Create your models here.
 
+class Product_with_quantity(models.Model):
+    product_id=models.IntegerField()
+    quantity=models.IntegerField()
 
 class Product (models.Model):
     product_name=models.CharField(max_length=255)
