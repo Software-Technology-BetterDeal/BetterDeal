@@ -35,7 +35,7 @@ class Product (models.Model):
 
 class Profile(models.Model):
     user=models.OneToOneField(User, on_delete=models.CASCADE)
-    cart=models.ManyToManyField(Product)
+    cart=models.ManyToManyField(Product_with_quantity)
 
     class Meta:
         db_table = "profile"

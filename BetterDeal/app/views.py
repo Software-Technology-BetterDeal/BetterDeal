@@ -1,11 +1,12 @@
 from django.shortcuts import render, redirect
 from django.views.generic import TemplateView, ListView
-from .models import Product, Profile
+from .models import Product, Profile, Product_with_quantity
 from django.db.models import Q
 from .forms import NewUserForm
 from django.contrib.auth import login, authenticate
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import views as auth_views
+
 
 
 # Create your views here.
@@ -18,29 +19,49 @@ def home(request):
 def add_cart(request):
     if request.method == 'POST':
         product_id = request.POST.get('AddButton', '')
-        product = Product.objects.get(id=product_id)
+        quantity=request.POST.get('quantity','')
+        prod_with_qu=Product_with_quantity(product_id=product_id,quantity=int(quantity))
         profile = Profile.objects.get(user=request.user)
-        profile.cart.add(product)
+        if list(profile.cart.filter(product_id=product_id))==[]:
+            prod_with_qu.save()
+            product = Product.objects.get(id=product_id)
+            profile.cart.add(prod_with_qu)
+        else:
+            product= profile.cart.get(product_id=product_id)
+            product.quantity+=int(quantity)
+            product.save()
+
         return redirect('search')
 
 def remove_cart(request):
     if request.method == 'POST':
         product_id = request.POST.get('RemoveButton', '')
-        product = Product.objects.get(id=product_id)
+        quantity=int(request.POST.get('quantity',''))
         profile = Profile.objects.get(user=request.user)
-        profile.cart.remove(product)
+        product=profile.cart.get(product_id=product_id)
+
+        if product.quantity-quantity<1:
+            profile.cart.remove(product)
+            product.delete()
+        else:
+            product.quantity-=quantity
+            product.save()
         return redirect('cart')
 
 
 def cart(request):
     profile = Profile.objects.get(user=request.user)
-
     cart=profile.cart.all()
-    supermarkets=set([x.supermarket for x in cart ])
+    products=[]
+    quantities=[]
+    for prod in cart:
+        products.append([Product.objects.get(id=prod.product_id),prod.quantity])
+        
+    supermarkets=set([x[0].supermarket for x in products ])
 
 
     context = {
-        'cart': profile.cart.all(),
+        'cart': products,
         'supermarkets':supermarkets
     }
     return render(request, 'app/cart.html', context)

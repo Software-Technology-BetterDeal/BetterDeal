@@ -25,8 +25,9 @@
             {% if request.user.is_authenticated %}
               <form action="{% url 'addcart' %}" method="POST"> 
                 {% csrf_token %}
-                <button name="AddButton" class="my_green_button" type="sumbit" value={{ product.id }} >Add to cart</button>
-                <input type="text", id="{{ product.id }}", value="1">
+                <button class="my_green_button" type="sumbit" >Add to cart</button>
+                <input name="AddButton" class="my_green_button" type="hidden" value={{ product.id }} >
+                <input name="quantity" ,type="text", id="{{ product.id }}", value="1">
                 <button type="button" , onclick="increaseButtonClick( {{ product.id }} )" >+</button>
                 <button type="button" , onclick="decreaseButtonClick( {{ product.id }} )" >-</button>
               </form>
@@ -51,8 +52,9 @@
             {% if request.user.is_authenticated %}
               <form action="{% url 'addcart' %}" method="POST"> 
                 {% csrf_token %}
-                <button name="AddButton" class="my_green_button" type="sumbit" value={{ product.id }} >Add to cart</button>
-                <input type="text", id="{{ product.id }}", value="1">
+                <button class="my_green_button" type="sumbit" >Add to cart</button>
+                <input name="AddButton" class="my_green_button" type="hidden" value={{ product.id }} >
+                <input name="quantity" ,type="text", id="{{ product.id }}", value="1">
                 <button type="button" , onclick="increaseButtonClick( {{ product.id }} )" >+</button>
                 <button type="button" , onclick="decreaseButtonClick( {{ product.id }} )" >-</button>
               </form>
