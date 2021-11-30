@@ -20,6 +20,7 @@ def add_cart(request):
     if request.method == 'POST':
         product_id = request.POST.get('AddButton', '')
         quantity=request.POST.get('quantity','')
+        
         prod_with_qu=Product_with_quantity(product_id=product_id,quantity=int(quantity))
         profile = Profile.objects.get(user=request.user)
         if list(profile.cart.filter(product_id=product_id))==[]:
@@ -31,7 +32,9 @@ def add_cart(request):
             product.quantity+=int(quantity)
             product.save()
 
-        return redirect('search')
+        q=request.POST.get('q','')
+        url="../../app/searchresults/?q=" + q 
+        return redirect(url)
 
 def remove_cart(request):
     if request.method == 'POST':

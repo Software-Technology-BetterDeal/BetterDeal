@@ -27,6 +27,7 @@
                 {% csrf_token %}
                 <button class="my_green_button" type="sumbit" >Add to cart</button>
                 <input name="AddButton" class="my_green_button" type="hidden" value={{ product.id }} >
+                <input name="q" class="my_green_button" type="hidden" value={{ request.GET.q }} >
                 <input name="quantity" ,type="text", id="{{ product.id }}", value="1">
                 <button type="button" , onclick="increaseButtonClick( {{ product.id }} )" >+</button>
                 <button type="button" , onclick="decreaseButtonClick( {{ product.id }} )" >-</button>
@@ -54,6 +55,7 @@
                 {% csrf_token %}
                 <button class="my_green_button" type="sumbit" >Add to cart</button>
                 <input name="AddButton" class="my_green_button" type="hidden" value={{ product.id }} >
+                <input name="q" class="my_green_button" type="hidden" value={{ request.GET.q }} >
                 <input name="quantity" ,type="text", id="{{ product.id }}", value="1">
                 <button type="button" , onclick="increaseButtonClick( {{ product.id }} )" >+</button>
                 <button type="button" , onclick="decreaseButtonClick( {{ product.id }} )" >-</button>
