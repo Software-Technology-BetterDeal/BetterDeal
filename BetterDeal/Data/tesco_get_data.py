@@ -56,11 +56,17 @@ for product in all:
         #print(product_unit_price)
     product_img_name = product.find('div',class_='product__img-holder')
     product_img_name_alt = product.find('div',class_='product__image-container')
+    product_img_name_alt2 = product.find('img',class_='product-img')
+
+
 
     if (product_img_name is not None):
         product_img_name=get_name(product_img_name.img['src'])
     elif (product_img_name_alt is not None):
         product_img_name = get_name(product_img_name_alt.img['src'])
+    elif (product_img_name_alt2 is not None):
+        product_img_name = get_name(product_img_name_alt2['src'])
+
     
     integration_date=datetime.now()
     if (not product_name or not product_price):
@@ -69,7 +75,7 @@ for product in all:
 
 
 csv_file.close()
-os.system("python get_imgs.py tesco")
+#os.system("python get_imgs.py tesco")
 #os.system("python import_csv_sqlite.py")
 
 

@@ -67,7 +67,7 @@ for product in all:
 
 
 csv_file.close()
-os.system("python get_imgs.py aldi")
+#os.system("python get_imgs.py aldi")
 
 
 
