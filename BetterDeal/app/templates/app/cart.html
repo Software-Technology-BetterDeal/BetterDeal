@@ -32,7 +32,9 @@
                 <form action="{% url 'removecart' %}" method="POST"> 
                   {% csrf_token %}
                   <button type="sumbit"  >Remove from Cart</button>
-                  <input name="quantity" ,type="number" ondrop="return false;" onpaste="return false;" onkeypress='return isNumberKey(event)' id="{{ product.0.id }}", size=2 value="1">
+
+                  <input name="RemoveButton" class="my_green_button" type="hidden" value={{ product.0.id }} >
+                  <input name="quantity" ,type="number" min="1" max="10" step="1" ondrop="return false;" onpaste="return false;" onkeypress="return event.charCode >= 48 && event.charCode <= 57" id="{{ product.0.id }}", value="1">
                   <button type="button" , onclick="increaseButtonClick( {{ product.0.id }} )" >+</button>
                   <button type="button" , onclick="decreaseButtonClick( {{ product.0.id }} )" >-</button>
                 </form>

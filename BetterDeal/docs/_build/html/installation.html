@@ -1,0 +1,136 @@
+
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Installation</title>
+        <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+        <link rel="stylesheet" type="text/css" href="_static/alabaster.css" />
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <link rel="installation" title="Installation" href="#" />
+        <link rel="search" title="Search" href="search.html" />
+   
+        <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+
+        <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+    </head>
+
+    <body>
+
+        <div class="document">
+            <div class="documentwrapper">
+                <div class="bodywrapper">
+                    <div class="body" role="main">
+                        <h1 id="installation">Installation</h1>
+                        <p style="text-align: justify; padding-top: 50px">
+                            Our team developed the BetterDeal application with the Django web-development framework which
+                            is based on the Python programming language, so to be able to use it, first the so-called Python
+                            interpreter and also Django should be installed.
+                        </p>
+
+                        <h2 id="python" style="padding-top: 25px">Python</h2>
+                        <p style="text-align. justify">
+                            First we should download and install the Python interpreter. From here it can be downloaded:
+                            <a href="https://www.python.org/downloads/release/python-395">https://www.python.org/downloads/release/python-395</a>
+                        </p>
+                        <p style="text-align: justify">
+                            At the bottom of that page we should choose the suitable one for our computer, and click on that one.<br>
+                            <img src="_static/download_python_3.5.png">
+                        </p>
+                        <p style="text-align: justify; padding-top: 10px">
+                            After that, in "downloads" we can find an .exe file. Clicking on that file will start the installation.<br>
+                            <img src="_static/python_1.png"><br>
+                            We should accept "Add Python 3.9 to PATH" and after that we click on "Install now", and the followings
+                            will execute the installation.<br>
+                            <img src="_static/python_2.png" style="padding-top: 40px"><br>
+                            <img src="_static/python_3.png"><br>
+                        </p>
+
+                        <h2 id="django" style="padding-top: 60px">Django</h2>
+                        <p style="text-align: justify">
+                            To install Django we have to use the so-called Command Line, a terminal window. To open this we have to
+                            type to the search box in the start menu "cmd", and it will appear right away. Just to try it out
+                            we can check that we actually installed the python interpreter. We have to type <b>"python --version</b>",
+                            then press Enter:<br>
+                            <img src="_static/python_4.png"><br>
+                            It does not show any error message, so it means we have python, and we even found out the version.
+                            Now we can install Django.
+                        </p>
+                        <p style="text-align: justify">
+                            To install Django we have to type the following command "<b>pip install Django==3.2.9</b>",
+                            then press Enter. The installation will be executed, the following pictures show it.<br>
+                            <img src="_static/django_1.png"><br>
+                            <img src="_static/django_2.png"><br>
+                        </p>
+                        <p style="text-align: justify; padding-top: 10px">
+                            Now everything is prepared for starting the application.
+                        </p>
+
+                        <h2 id="start-the-app" style="padding-top: 25px">Start the App</h2>
+                        <p style="text-align: justify">
+                            To start BetterDeal, we have to download the whole project. Once we got it, we have to open again
+                            the command line. After that we have to navigate ourselves to that directory of the project which
+                            contains a file called "<b>manage.py</b>". For navigation we use the "<b>cd</b>" command. With <b>cd</b>
+                            we can go into one directory, with command "<b>cd..</b>", we can step out (or step back) of a directory.
+                            The followings show these steps:<br>
+                            <img src="_static/cd_1.png"><br>
+                            <img src="_static/cd_2.png"><br>
+                            <img src="_static/cd_3.png"><br>
+                        </p>
+                        <p style="text-align: justify; padding-top: 20px">
+                            Once we arrived to the right directory, with the following command we have to start a server
+                            on which our web application will run: "<b>python manage.py runserver</b>" It is really important
+                            to start the server, without it, the application won't work.<br>
+                            <img src="_static/runserver.png"><br>
+                        </p>
+                        <p style="text-align: justify; padding-top: 40px">
+                            Now just one step remained, we have to open the website in our browser. For that, we have to copy this link
+                            into the browser's addres bar: <b>http://localhost:8000/app/</b> And finally we can start to
+                            use the application!<br>
+                            <img src="_static/homepage.png"><br>
+                        </p>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+                <div class="sphinxsidebarwrapper">
+                    <h1 class="logo"><a href="index.html">BetterDeal</a></h1>
+
+                    <h3><a href="installation.html">Installation</a></h3>
+                    <h3><a href="application.html">Application</a></h3>
+                    <h3><a href="modules.html">For developers</a></h3>
+
+                    <div id="searchbox" style="display: none" role="search">
+                        <h3 id="searchlabel">Quick search</h3>
+                        <div class="searchformwrapper">
+                            <form class="search" action="search.html" method="get">
+                                <input type="text" name="q" aria-labelledby="searchlabel" />
+                                <input type="submit" value="Go" />
+                            </form>
+                        </div>
+                    </div>
+                    <script>$('#searchbox').show(0);</script>
+                </div>
+            </div>
+
+            <div class="clearer"></div>
+        </div>
+
+        <div class="footer">
+            &copy;2021, Dóra Bányai, Cecília Horváth, Bence Korpa, Selma Mhenni, Xolani Nhlapo.
+      
+            |
+            Powered by <a href="http://sphinx-doc.org/">Sphinx 4.0.1</a>
+            &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+        </div>
+    
+    </body>
+</html>
