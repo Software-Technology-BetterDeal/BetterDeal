@@ -27,7 +27,7 @@
                 {% csrf_token %}
                 <button class="my_green_button" type="sumbit" >Add to cart</button>
                 <input name="AddButton" class="my_green_button" type="hidden" value={{ product.id }} >
-                <input name="quantity" ,type="text", id="{{ product.id }}", value="1">
+                <input name="quantity" ,type="number" ondrop="return false;" onpaste="return false;" onkeypress='return isNumberKey(event)' id="{{ product.id }}",size=2 value="1">
                 <button type="button" , onclick="increaseButtonClick( {{ product.id }} )" >+</button>
                 <button type="button" , onclick="decreaseButtonClick( {{ product.id }} )" >-</button>
               </form>
@@ -54,7 +54,7 @@
                 {% csrf_token %}
                 <button class="my_green_button" type="sumbit" >Add to cart</button>
                 <input name="AddButton" class="my_green_button" type="hidden" value={{ product.id }} >
-                <input name="quantity" ,type="text", id="{{ product.id }}", value="1">
+                <input name="quantity" ,type="number" ondrop="return false;" onpaste="return false;" onkeypress='return isNumberKey(event)' id="{{ product.id }}",size=2 value="1">
                 <button type="button" , onclick="increaseButtonClick( {{ product.id }} )" >+</button>
                 <button type="button" , onclick="decreaseButtonClick( {{ product.id }} )" >-</button>
               </form>
