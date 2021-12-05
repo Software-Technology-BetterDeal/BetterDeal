@@ -2,118 +2,198 @@
 <!DOCTYPE html>
 
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17: http://docutils.sourceforge.net/" />
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17: http://docutils.sourceforge.net/" />
 
-    <title>BetterDeal package &#8212; BetterDeal 1.0 documentation</title>
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="_static/alabaster.css" />
-    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-    <script src="_static/jquery.js"></script>
-    <script src="_static/underscore.js"></script>
-    <script src="_static/doctools.js"></script>
-    <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="search.html" />
+        <title>BetterDeal package</title>
+        <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+        <link rel="stylesheet" type="text/css" href="_static/alabaster.css" />
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <link rel="index" title="Index" href="genindex.html" />
    
-  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
-  
-  
-  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+        <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+        <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
 
-  </head><body>
-  
-
-    <div class="document">
-      <div class="documentwrapper">
-        <div class="bodywrapper">
-          
-
-          <div class="body" role="main">
+    </head>
+    <body>
+        <div class="document">
+            <div class="documentwrapper">
+                <div class="bodywrapper">
+                    <div class="body" role="main">
             
-  <section id="betterdeal-package">
-<h1>BetterDeal package<a class="headerlink" href="#betterdeal-package" title="Permalink to this headline">¶</a></h1>
-<section id="submodules">
-<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
-</section>
-<section id="betterdeal-asgi-module">
-<h2>BetterDeal.asgi module<a class="headerlink" href="#betterdeal-asgi-module" title="Permalink to this headline">¶</a></h2>
-</section>
-<section id="betterdeal-settings-module">
-<h2>BetterDeal.settings module<a class="headerlink" href="#betterdeal-settings-module" title="Permalink to this headline">¶</a></h2>
-</section>
-<section id="betterdeal-urls-module">
-<h2>BetterDeal.urls module<a class="headerlink" href="#betterdeal-urls-module" title="Permalink to this headline">¶</a></h2>
-</section>
-<section id="betterdeal-wsgi-module">
-<h2>BetterDeal.wsgi module<a class="headerlink" href="#betterdeal-wsgi-module" title="Permalink to this headline">¶</a></h2>
-</section>
-<section id="module-contents">
-<h2>Module contents<a class="headerlink" href="#module-contents" title="Permalink to this headline">¶</a></h2>
-</section>
-</section>
+                        <section id="betterdeal-package">
+                            <h1>BetterDeal package<a class="headerlink" href="#betterdeal-package" title="Permalink to this headline">¶</a></h1>
+                            <p style="text-align: justify; padding-top: 40px">
+                                This "BetterDeal" directory is the actual Python package for our project. Its name is the
+                                Python package name we need to use to import anything inside it. (Django docs)
+                            </p>
 
+                            <section id="submodules">
+                                <h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+                            </section>
+                            <section id="betterdeal-asgi-module">
+                                <h3>1. BetterDeal.asgi module<a class="headerlink" href="#betterdeal-asgi-module" title="Permalink to this headline">¶</a></h3>
+                                <p style="text-align: justify;">
+                                    Django supports deploying on ASGI, the emerging Python standard for asynchronous web
+                                    servers and applications. Django’s startproject management command sets up a default
+                                    ASGI configuration which can be found here and which we can tweak as needed for our
+                                    project, and direct any ASGI-compliant application server to use. (Django docs:
+                                    <a href="https://docs.djangoproject.com/en/3.2/howto/deployment/asgi/">https://docs.djangoproject.com/en/3.2/howto/deployment/asgi/</a>)
+                                    Right now it is unused.
+                                </p>
+                            </section>
+                            <section id="betterdeal-settings-module">
+                                <h3>2. BetterDeal.settings module<a class="headerlink" href="#betterdeal-settings-module" title="Permalink to this headline">¶</a></h3>
+                                <p style="text-align: justify;">
+                                    This settings file contains all the configuration of our Django installation, it is
+                                    just a Python module with module-level variables. It does not have to define any settings
+                                    if it does not need to, each setting has a sensible default value. (Django docs:
+                                    <a href="https://docs.djangoproject.com/en/3.2/howto/deployment/asgi/">https://docs.djangoproject.com/en/3.2/topics/settings/</a>)
+                                </p>
+                                <p style="text-align: justify;">
+                                    <ul>
+                                        <li><b>BASE_DIR: </b>Our Django project directory.</li>
+                                        <li><b>SECRET_KEY: </b>This is used to provide cryptographic signing, and should
+                                            be set to a unique, unpredictable value.
+                                        </li>
+                                        <li><b>DEBUG: </b>A boolean that turns on/off debug mode. One of the main features
+                                            of debug mode is the display of detailed error pages. If the app raises an exception
+                                            when DEBUG is True, Django will display a detailed traceback, including a lot of
+                                            metadata about the environment, such as all the currently defined Django settings
+                                            (from settings.py).
+                                        </li>
+                                        <li><b>ALLOWED_HOSTS: </b>A list of strings representing the host/domain names that
+                                            this Django site can serve. This is a security measure to prevent HTTP Host header
+                                            attacks, which are possible even under many seemingly-safe web server configurations.
+                                        </li>
+                                        <li><b>INSTALLED_APPS: </b>A list of strings designating all applications that are
+                                            enabled in the current Django installation.
+                                        </li>
+                                        <li><b>MIDDLEWARE: </b>Middleware is a framework of hooks into Django’s request/response
+                                            processing. It’s a light, low-level “plugin” system for globally altering Django’s input or output.
+                                        </li>
+                                        <li><b>ROOT_URLCONF: </b>A string representing the full Python import path to your
+                                            root URLconf, for example "mydjangoapps.urls".
+                                        </li>
+                                        <li><b>TEMPLATES: </b>A list containing the settings for all template engines to be used with Django.
+                                        </li>
+                                        <li><b>WSGI_APPLICATION: </b>The full Python path of the WSGI application object
+                                            that Django’s built-in servers (e.g. runserver) will use</li>
+                                        <li><b>DATABASES: </b>A dictionary containing the settings for all databases to be used with Django.</li>
+                                        <li><b>AUTH_PASSWORD_VALIDATORS: </b>The list of validators that are used to check the strength of user’s passwords.</li>
+                                        <li><b>LANGUAGE_CODE: </b>A string representing the language code for the installation, English is "en-us".</li>
+                                        <li><b>TIME_ZONE: </b>A string representing the time zone for the database connection.</li>
+                                        <li><b>USE_I18N: </b>A boolean that specifies whether Django’s translation system should be enabled.</li>
+                                        <li><b>USE_L10N: </b>A boolean that specifies if localized formatting of data will
+                                            be enabled by default or not. If this is set to True, e.g. Django will display
+                                            numbers and dates using the format of the current locale.</li>
+                                        <li><b>USE_TZ: </b>A boolean that specifies if datetimes will be timezone-aware by
+                                            default or not. If this is set to True, Django will use timezone-aware datetimes
+                                            internally.</li>
+                                        <li><b>STATIC_URL: </b>URL to use when referring to static files located in STATIC_ROOT,
+                                        including static files like CSS, JavaScript and Images.</li>
+                                        <li><b>STATICFILES_DIRS: </b>This should be set to a list of strings that contain full
+                                            paths to the additional files directory(ies).</li>
+                                        <li><b>DEFAULT_AUTO_FIELD: </b>Default primary key field type to use for models
+                                            that don’t have a field with primary_key=True.</li>
+                                        <li><b>LOGIN_REDIRECT_URL: </b>The URL or named URL pattern where requests are
+                                            redirected after login</li>
+                                        <li><b>LOGIN_URL: </b>The URL or named URL pattern where requests are redirected for login</li>
+                                    </ul>
+                                </p>
+                            </section>
+                            <section id="betterdeal-urls-module">
+                                <h3>3. BetterDeal.urls module<a class="headerlink" href="#betterdeal-urls-module" title="Permalink to this headline">¶</a></h3>
+                                <p style="text-align: justify;">
+                                    The `urlpatterns` list routes URLs to views. (For more details:
+                                    <a href="https://docs.djangoproject.com/en/3.2/topics/http/urls/">https://docs.djangoproject.com/en/3.2/topics/http/urls/</a>)
+                                </p>
+                            </section>
+                            <section id="betterdeal-wsgi-module">
+                                <h3>4. BetterDeal.wsgi module<a class="headerlink" href="#betterdeal-wsgi-module" title="Permalink to this headline">¶</a></h3>
+                                <p style="text-align: justify;">
+                                    Django’s primary deployment platform is WSGI, the Python standard for web servers and
+                                    applications. Django’s startproject management command sets up a minimal default WSGI
+                                    configuration for us, which we can tweak as needed for the project, and direct any
+                                    WSGI-compliant application server to use. (Django docs:
+                                    <a href="https://docs.djangoproject.com/en/3.2/howto/deployment/wsgi/">https://docs.djangoproject.com/en/3.2/howto/deployment/wsgi/</a>)
+                                    Right now it is unused.
+                                </p>
+                            </section>
+                            <section id="module-contents">
+                                <h3>5. Module contents<a class="headerlink" href="#module-contents" title="Permalink to this headline">¶</a></h3>
+                            </section>
+                        </section>
+                    </div>
+                </div>
+            </div>
 
-          </div>
-          
+            <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+                <div class="sphinxsidebarwrapper">
+                    <h1 class="logo"><a href="index.html">BetterDeal</a></h1>
+
+                    <h3><a href="installation.html">Installation</a></h3>
+                    <h3><a href="application.html">Application</a></h3>
+                    <h3><a href="modules.html">For developers</a></h3>
+
+                    <div class="toctree-wrapper compound">
+                        <ul>
+                            <li class="toctree-l1"><a class="reference internal" href="BetterDeal.html">BetterDeal package</a>
+                                <ul>
+                                            <li class="toctree-l2"><a class="reference internal" href="BetterDeal.html#submodules">Submodules</a></li>
+                                            <li class="toctree-l2"><a class="reference internal" href="BetterDeal.html#betterdeal-asgi-module">BetterDeal.asgi module</a></li>
+                                            <li class="toctree-l2"><a class="reference internal" href="BetterDeal.html#betterdeal-settings-module">BetterDeal.settings module</a></li>
+                                            <li class="toctree-l2"><a class="reference internal" href="BetterDeal.html#betterdeal-urls-module">BetterDeal.urls module</a></li>
+                                            <li class="toctree-l2"><a class="reference internal" href="BetterDeal.html#betterdeal-wsgi-module">BetterDeal.wsgi module</a></li>
+                                            <li class="toctree-l2"><a class="reference internal" href="BetterDeal.html#module-contents">Module contents</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="toctree-l1"><a class="reference internal" href="app.html">app package</a>
+                                        <ul>
+                                            <li class="toctree-l2"><a class="reference internal" href="app.html#subpackages">Subpackages</a>
+                                                <ul>
+                                                    <li class="toctree-l3"><a class="reference internal" href="app.migrations.html">app.migrations package</a>
+                                                        <ul>
+                                                            <li class="toctree-l4"><a class="reference internal" href="app.migrations.html#submodules">Submodules</a></li>
+                                                            <li class="toctree-l4"><a class="reference internal" href="app.migrations.html#app-migrations-0001-initial-module">app.migrations.0001_initial module</a></li>
+                                                            <li class="toctree-l4"><a class="reference internal" href="app.migrations.html#app-migrations-0002-product-image-name-module">app.migrations.0002_product_image_name module</a></li>
+                                                            <li class="toctree-l4"><a class="reference internal" href="app.migrations.html#module-contents">Module contents</a></li>
+                                                        </ul>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                            <li class="toctree-l2"><a class="reference internal" href="app.html#submodules">Submodules</a></li>
+                                            <li class="toctree-l2"><a class="reference internal" href="app.html#app-admin-module">app.admin module</a></li>
+                                            <li class="toctree-l2"><a class="reference internal" href="app.html#app-apps-module">app.apps module</a></li>
+                                            <li class="toctree-l2"><a class="reference internal" href="app.html#app-forms-module">app.forms module</a></li>
+                                            <li class="toctree-l2"><a class="reference internal" href="app.html#app-models-module">app.models module</a></li>
+                                            <li class="toctree-l2"><a class="reference internal" href="app.html#app-tests-module">app.tests module</a></li>
+                                            <li class="toctree-l2"><a class="reference internal" href="app.html#app-urls-module">app.urls module</a></li>
+                                            <li class="toctree-l2"><a class="reference internal" href="app.html#app-views-module">app.views module</a></li>
+                                            <li class="toctree-l2"><a class="reference internal" href="app.html#module-contents">Module contents</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="toctree-l1"><a class="reference internal" href="manage.html">manage module</a></li>
+                                </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="clearer"></div>
         </div>
-      </div>
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
-        <div class="sphinxsidebarwrapper">
-<h1 class="logo"><a href="index.html">BetterDeal</a></h1>
-
-
-
-
-
-
-
-
-<h3>Navigation</h3>
-
-<div class="relations">
-<h3>Related Topics</h3>
-<ul>
-  <li><a href="index.html">Documentation overview</a><ul>
-  </ul></li>
-</ul>
-</div>
-<div id="searchbox" style="display: none" role="search">
-  <h3 id="searchlabel">Quick search</h3>
-    <div class="searchformwrapper">
-    <form class="search" action="search.html" method="get">
-      <input type="text" name="q" aria-labelledby="searchlabel" />
-      <input type="submit" value="Go" />
-    </form>
-    </div>
-</div>
-<script>$('#searchbox').show(0);</script>
-
-
-
-
-
-
-
-
+        <div class="footer">
+            &copy;2021, Dóra Bányai, Cecília Horváth, Bence Korpa, Selma Mhenni, Xolani Nhlapo.
+      
+             |
+            Powered by <a href="http://sphinx-doc.org/">Sphinx 4.0.1</a>
+            &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+            |
+            <a href="_sources/BetterDeal.rst.txt" rel="nofollow">Page source</a>
         </div>
-      </div>
-      <div class="clearer"></div>
-    </div>
-    <div class="footer">
-      &copy;2021, Dóra Bányai, Cecília Horváth, Bence Korpa, Selma Mhenni, Xolani Nhlapo.
-      
-      |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 4.0.1</a>
-      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
-      
-      |
-      <a href="_sources/BetterDeal.rst.txt"
-          rel="nofollow">Page source</a>
-    </div>
-
-    
-
     
   </body>
 </html>
