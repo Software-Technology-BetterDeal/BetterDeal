@@ -75,7 +75,7 @@ for product in all:
 
 
 csv_file.close()
-#os.system("python get_imgs.py tesco")
+os.system("python get_imgs.py tesco")
 #os.system("python import_csv_sqlite.py")
 
 

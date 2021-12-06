@@ -28,39 +28,66 @@
                         <section id="dbsqlite3-package">
                             <h1>Data package<a class="headerlink" href="#app-package" title="Permalink to this headline">¶</a></h1>
                             <p style="text-align: justify; padding-top: 40px">
-                                This module contains python scripts whose main function is to get the data from different websites
-                                with web-scraping.
+                                This module contains python scripts responsible for collecting data from the web using web scraping
+                                technology. We use BeautifulSoup Library to fetch the products data from supermarkets websites.
+                                Descriptions about the scripts used are as follows:
                             </p>
                             <section id="data-aldi-discounts">
-                                <h3>aldi_discounts module<a class="headerlink" href="#data-aldi-dicounts" title="Permalink to this headline">¶</a></h3>
+                                <h3>aldi_get_data.py module<a class="headerlink" href="#data-aldi-dicounts" title="Permalink to this headline">¶</a></h3>
                                 <p style="text-align: justify;">
-                                </p>
-                            </section>
-                            <section id="data-aldi-getdata">
-                                <h3>aldi_get_data module<a class="headerlink" href="#data-aldi-getdata" title="Permalink to this headline">¶</a></h3>
-                                <p style="text-align: justify;">
-                                </p>
-                            </section>
-                            <section id="data-get-imgs">
-                                <h3>get_imgs module<a class="headerlink" href="#data-get-imgs" title="Permalink to this headline">¶</a></h3>
-                                <p style="text-align: justify;">
-                                </p>
-                            </section>
-                            <section id="data-import-csvsqlite">
-                                <h3>imoprt_csv_sqlite module<a class="headerlink" href="#data-import-csvsqlite" title="Permalink to this headline">¶</a></h3>
-                                <p style="text-align: justify;">
-                                </p>
-                            </section>
-                            <section id="data-tesco-discounts">
-                                <h3>tesco_discounts module<a class="headerlink" href="#data-tesco-discounts" title="Permalink to this headline">¶</a></h3>
-                                <p style="text-align: justify;">
+                                    In this file, BeautifulSoup python library gets the html content of the supermarket website.
+                                    After data processing we generate a csv file containing the following informations:
+                                    
+                                    <ul>
+
+                                        <li>product_name</li>
+                                        <li>price</li>
+                                        <li>image_name</li>
+                                        <li>integration_date</li>
+                                        <li>supermarket</li>
+
+                                        </ul>
+                                        
                                 </p>
                             </section>
                             <section id="data-tesco-getdata">
-                                <h3>tesco_get_data module<a class="headerlink" href="#data-tesco-getdata" title="Permalink to this headline">¶</a></h3>
+                                <h3>tesco_get_data.py module<a class="headerlink" href="#data-tesco-getdata" title="Permalink to this headline">¶</a></h3>
                                 <p style="text-align: justify;">
+                                    In this file, BeautifulSoup python library gets the html content of the supermarket website.
+                                    After data processing we generate a csv file containing the following informations:
+                                    product_name,price,unit,unit_price,image_name,integration_date,supermarket
+
+                                    <ul>
+
+                                        <li>product_name</li>
+                                        <li>price</li>
+                                        <li>unit</li>
+                                        <li>unit_price</li>
+                                        <li>image_name</li>
+                                        <li>integration_date</li>
+                                        <li>supermarket</li>
+
+                                        </ul>
+                                    
                                 </p>
                             </section>
+                            
+                            <section id="data-get-imgs">
+                                <h3>get_imgs.py module<a class="headerlink" href="#data-get-imgs" title="Permalink to this headline">¶</a></h3>
+                                <p style="text-align: justify;">
+                                    In this module, we use a python script to download the images from the supermarket's 
+                                    website and store them in our application.
+                                </p>
+                            </section>
+                            <section id="data-import-csvsqlite">
+                                <h3>import_csv_sqlite.py module<a class="headerlink" href="#data-import-csvsqlite" title="Permalink to this headline">¶</a></h3>
+                                <p style="text-align: justify;">
+                                    This script is resposible for the loading process. It actually store the data saved in the csv files
+                                    in the SQLite database. It updates the product table with the data extracted.
+                                </p>
+                            </section>
+                            
+                            
                         </section>
                     </div>
                 </div>
