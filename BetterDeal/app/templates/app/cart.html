@@ -6,13 +6,13 @@
 
 <h2 class="cart-title" style="text-align: center">Cart</h2>
 
-<div style="text-align: center"><img src="{% static 'app/undraw_empty_cart_co35.png' %}" height="300" alt="My image" style="text-align: center"></div>
+<div style="text-align: center"><img src="{% static 'app/undraw_empty_cart_co35.png' %}" height="300" alt="Cart" style="text-align: center"></div>
 
 {% for supermarket in supermarkets %}
 
 <div name={{supermarket}}>
 
-  <h3>
+  <h3 >
     {{supermarket}}
   </h3>
 
@@ -22,21 +22,21 @@
         <div class="col-md-6">
           <table class="my_table">
             <tr>
-              <td height="100" width="100"><img src="/static/{{ product.0.supermarket}}-images/{{ product.0.image_name }}" alt="My image" height="100"/> <br></td>
-              <td>
+              <td height="100" width="100"><img src="/static/{{ product.0.supermarket}}-images/{{ product.0.image_name }}" alt="My image" width="100"/> <br></td>
+              <td style="padding-left: 2em">
                 <span>{{ product.0.product_name }}</span><br>
-                <img src="/static/{{ product.0.supermarket}}-images/{{ product.0.supermarket}}.png" alt="My image" height="15"/>
-                {{ product.1 }}
+                <img src="/static/{{ product.0.supermarket}}-images/{{ product.0.supermarket}}.png" alt="My image" height="15" style="margin-top: 5px; margin-bottom: 5px"/>
                  <br>
                 {{ product.0.price }} Ft <br>
                 <form action="{% url 'removecart' %}" method="POST"> 
                   {% csrf_token %}
+                  <input class="quantity_input" name="quantity" ,type="number" min="1" max="10" step="1" ondrop="return false;" onpaste="return false;" onkeypress="return event.charCode >= 48 && event.charCode <= 57" id="{{ product.0.id }}", value={{ product.1 }}>
+                  <button class="quantity_button" type="button" , onclick="increaseButtonClick( {{ product.0.id }} )" >+</button>
+                  <button class="quantity_button" type="button" , onclick="decreaseButtonClick( {{ product.0.id }} )" >-</button>
+                  <br>
                   <button type="sumbit"  >Remove from Cart</button>
 
                   <input name="RemoveButton" class="my_green_button" type="hidden" value={{ product.0.id }} >
-                  <input name="quantity" ,type="number" min="1" max="10" step="1" ondrop="return false;" onpaste="return false;" onkeypress="return event.charCode >= 48 && event.charCode <= 57" id="{{ product.0.id }}", value="1">
-                  <button type="button" , onclick="increaseButtonClick( {{ product.0.id }} )" >+</button>
-                  <button type="button" , onclick="decreaseButtonClick( {{ product.0.id }} )" >-</button>
                 </form>
               </td>
             </tr>
@@ -44,6 +44,7 @@
         </div>
     {% endif %}
     {% endfor %}
+    <!--
     <div class="col-25">
       <div class="container">
         <h4>Cart
@@ -57,14 +58,24 @@
             {% endif %}
         {% endfor %} 
         <h4>
+          <hr>
           <p><span class="price">{{ sum }}</span></p>
+          <hr>
         </h4> 
       </div>
-    </div>  
+    </div> 
+    //-->
   </div>
+
 </div>
-    
+  
 {% endfor %}
+
+<h4>
+  <hr>
+  <p><span class="price">A total of {{ sum }} Ft</span></p>
+  <hr>
+</h4> 
 
 {% endblock content %}
 

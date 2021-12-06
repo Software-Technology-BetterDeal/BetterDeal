@@ -91,7 +91,7 @@ input:focus{
 
 .user-title{
     padding-top: 50px;
-    padding-bottom: 100px;
+    padding-bottom: 5px;
     font-family: tahoma;
     text-align: center;
 }
@@ -124,8 +124,6 @@ input:focus{
     flex: 50%;
 }
 
-<<<<<<< HEAD
-=======
 .wrapper{
     margin: 80px;
 }
@@ -143,5 +141,14 @@ input:focus{
     padding-bottom: 12px;
 }
 
+.quantity_input{
+    width: 40px;
+}
 
->>>>>>> front-end
+.quantity_button{
+    padding: 3px;
+    width: 32px;
+    height: 32px;
+}
+
+

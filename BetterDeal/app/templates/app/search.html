@@ -4,10 +4,12 @@
    
 {% if request.user.is_authenticated %}
   <h2 class="user-title">Hi {{user.username}}! </h2>
+  <div style="text-align: center"><img src="{% static 'app/undraw_neighbors_ciwb.png' %}" height="300" alt="Cart" style="text-align: center"></div>
 {% else %}
 {% endif %}
 
 <form class="search-form" action="{% url 'searchresults' %}" method="get">
+  <div style="font-size:1.6em; margin-bottom:20px">Tell us what you are looking for</div>
   <input name="q" type="text" placeholder="Search..."><br>
   <input type="submit" class="border-0 green-button" value="Send Search">
 </form>
